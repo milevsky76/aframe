@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A-Frame</title>
+</head>
+
+<body>
+  <a-scene>
+    <a-camera
+      id="camera"
+      cursor="rayOrigin: mouse"
+      position="0 2 1">
+    </a-camera>
+
+    <a-light
+      type="ambient"
+      intensity="0.5">
+    </a-light>
+    
+    <a-plane
+      id="activationPlane"
+      color="red"
+      width="10"
+      height="10"
+      position="0 0 -4"
+      rotation="-90 0 0"
+      material="opacity: 1"
+      shadow="receive: true">
+    </a-plane>
+
+    <a-entity
+      id="loadedModel"
+      visible="false"
+      scale="1 1 1"
+      gltf-model="url(/Jenkins.gltf)"
+      shadow="cast: true">
+    </a-entity>
+
+    <a-sky
+      src="#skyTexture"
+      color="#ECECEC">
+    </a-sky>
+
+    <a-sphere
+      id="metalSphere"
+      src="#skyTexture"
+      position="0 2 -8"
+      radius="1"
+      color="#fff"
+      metalness=".5"
+      roughness="1">
+    </a-sphere>
+
+    <a-assets>
+      <audio id="background-music" src="/resort.mp3"></audio>
+      <img id="skyTexture" src="https://live.staticflickr.com/65535/53753441825_aef18368aa_6k.jpg">
+    </a-assets>
+  </a-scene>
+
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
